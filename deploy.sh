@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+if [ "$#" -ne 1 ]; then
+    echo "You must enter build version (e.g. 0.1.2) as argument! Usage example: 'deploy.sh 0.1.2'"
+    exit 1
+fi
 
 set -e
 
