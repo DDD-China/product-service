@@ -4,9 +4,12 @@ import com.dmall.productservice.domain.Product;
 import com.dmall.productservice.infrastructure.repositories.dataentity.ProductDataEntity;
 import com.dmall.productservice.infrastructure.repositories.persistence.ProductJpaPersistence;
 
+import com.google.common.collect.Lists;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class ProductRepository {
@@ -25,4 +28,15 @@ public class ProductRepository {
   }
 
 
+  public ProductDataEntity findById(Long productId) {
+    return repository.findById(productId).orElse(null);
+  }
+
+  public List<ProductDataEntity> finndAll() {
+    List<ProductDataEntity> reuslt = Lists.newArrayList();
+
+    repository.findAll().forEach(reuslt::add);
+
+    return reuslt;
+  }
 }

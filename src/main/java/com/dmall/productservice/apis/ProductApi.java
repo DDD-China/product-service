@@ -2,9 +2,10 @@ package com.dmall.productservice.apis;
 
 import com.dmall.productservice.apis.assembler.ProductAssembler;
 import com.dmall.productservice.apis.dto.ProductCreationRequest;
+import com.dmall.productservice.apis.dto.ProductResponse;
 import com.dmall.productservice.application.ProductService;
 import com.dmall.productservice.domain.Product;
-import com.dmall.productservice.viewmodel.ProductViewModel;
+import com.dmall.productservice.infrastructure.repositories.dataentity.ProductDataEntity;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -30,19 +31,21 @@ public class ProductApi {
 
   @GetMapping
   @ApiOperation("Get all products")
-  public List<ProductViewModel> getAllProducts() {
+  public List<ProductResponse> getAllProducts() {
 
-    return productService.getProducts();
+    final List<ProductDataEntity> products = productService.getProducts();
+    return productAssembler.toProductResponseList(products);
   }
 
   @ApiOperation("Get product by id")
   @ApiImplicitParams({
-      @ApiImplicitParam(name = "productId", required = true, defaultValue = "p001")
+      @ApiImplicitParam(name = "productId", required = true, defaultValue = "1")
   })
   @RequestMapping(value = "/{productId}", method = RequestMethod.GET, headers = "Accept=application/json")
-  public ProductViewModel getProductById(@PathVariable("productId") final String productId) {
+  public ProductResponse getProductById(@PathVariable("productId") final Long productId) {
 
-    return productService.getProductsById(productId);
+    final ProductDataEntity entity = productService.getProductsById(productId);
+    return productAssembler.toProductResponse(entity);
   }
 
 
