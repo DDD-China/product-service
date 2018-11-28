@@ -1,4 +1,4 @@
-FROM gcr.io/distroless/java
+FROM openjdk:8-jdk-slim
 VOLUME /tmp
 ARG JAR_FILE
 ADD ${JAR_FILE} app.jar
