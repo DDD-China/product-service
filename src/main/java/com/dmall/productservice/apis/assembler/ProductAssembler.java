@@ -8,6 +8,7 @@ import com.dmall.productservice.infrastructure.repositories.dataentity.ProductDa
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,13 +34,22 @@ public class ProductAssembler {
   }
 
   public ProductResponse toProductResponse(ProductDataEntity dataEntity) {
-    return mapper.map(dataEntity, ProductResponse.class);
+    if (dataEntity != null) {
+      return mapper.map(dataEntity, ProductResponse.class);
+    } else {
+      return null;
+    }
 
   }
 
   public List<ProductResponse> toProductResponseList(List<ProductDataEntity> dataEntityList) {
-    return dataEntityList.stream()
-            .map(c -> mapper.map(c, ProductResponse.class))
-            .collect(Collectors.toList());
+
+    if (!CollectionUtils.isEmpty(dataEntityList)) {
+      return dataEntityList.stream()
+          .map(c -> mapper.map(c, ProductResponse.class))
+          .collect(Collectors.toList());
+    } else {
+      return null;
+    }
   }
 }
