@@ -1,5 +1,5 @@
 
-package com.dmall.productserivce.domain;
+package com.dmall.productservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

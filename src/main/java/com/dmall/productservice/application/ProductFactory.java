@@ -1,7 +1,6 @@
-package com.dmall.productserivce.application;
+package com.dmall.productservice.application;
 
-import com.dmall.productserivce.apis.dto.ProductCreationRequest;
-import com.dmall.productserivce.domain.Product;
+import com.dmall.productservice.domain.Product;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 

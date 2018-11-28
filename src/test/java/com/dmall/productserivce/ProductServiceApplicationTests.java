@@ -1,4 +1,4 @@
-package com.dmall.productserivce;
+package com.dmall.productservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ProductSerivceApplicationTests {
+public class ProductServiceApplicationTests {
 
 	@Test
 	public void contextLoads() {

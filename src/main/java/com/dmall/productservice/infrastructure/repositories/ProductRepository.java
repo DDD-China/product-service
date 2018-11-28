@@ -1,8 +1,8 @@
-package com.dmall.productserivce.infrastructure.repositories;
+package com.dmall.productservice.infrastructure.repositories;
 
-import com.dmall.productserivce.domain.Product;
-import com.dmall.productserivce.infrastructure.repositories.dataentity.ProductDataEntity;
-import com.dmall.productserivce.infrastructure.repositories.persistence.ProductJpaPersistence;
+import com.dmall.productservice.domain.Product;
+import com.dmall.productservice.infrastructure.repositories.dataentity.ProductDataEntity;
+import com.dmall.productservice.infrastructure.repositories.persistence.ProductJpaPersistence;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

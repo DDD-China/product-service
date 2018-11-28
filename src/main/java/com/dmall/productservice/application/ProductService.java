@@ -1,8 +1,8 @@
-package com.dmall.productserivce.application;
+package com.dmall.productservice.application;
 
-import com.dmall.productserivce.domain.Product;
-import com.dmall.productserivce.infrastructure.repositories.ProductRepository;
-import com.dmall.productserivce.viewmodel.ProductViewModel;
+import com.dmall.productservice.domain.Product;
+import com.dmall.productservice.infrastructure.repositories.ProductRepository;
+import com.dmall.productservice.viewmodel.ProductViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,7 +28,7 @@ public class ProductService {
 
     final List<ProductViewModel> productViewModels = getProducts();
 
-    return productViewModels.stream().filter(c -> Objects.equals(c.getProdcutId(), productId)).findAny().orElse(null);
+    return productViewModels.stream().filter(c -> Objects.equals(c.getProductId(), productId)).findAny().orElse(null);
   }
 
   public Long save(Product product) {

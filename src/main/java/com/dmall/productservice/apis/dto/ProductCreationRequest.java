@@ -1,4 +1,4 @@
-package com.dmall.productserivce.apis.dto;
+package com.dmall.productservice.apis.dto;
 
 import lombok.Getter;
 import lombok.Setter;

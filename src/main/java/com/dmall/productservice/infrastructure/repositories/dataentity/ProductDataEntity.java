@@ -1,7 +1,6 @@
 
-package com.dmall.productserivce.infrastructure.repositories.dataentity;
+package com.dmall.productservice.infrastructure.repositories.dataentity;
 
-import com.dmall.productserivce.domain.Product;
 import lombok.Getter;
 import lombok.Setter;
 

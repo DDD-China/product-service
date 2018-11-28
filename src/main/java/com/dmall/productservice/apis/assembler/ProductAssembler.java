@@ -1,13 +1,11 @@
-package com.dmall.productserivce.apis.assembler;
+package com.dmall.productservice.apis.assembler;
 
-import com.dmall.productserivce.apis.dto.ProductCreationRequest;
-import com.dmall.productserivce.application.ProductFactory;
-import com.dmall.productserivce.domain.Product;
+import com.dmall.productservice.apis.dto.ProductCreationRequest;
+import com.dmall.productservice.application.ProductFactory;
+import com.dmall.productservice.domain.Product;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.math.BigDecimal;
 
 
 @Component
