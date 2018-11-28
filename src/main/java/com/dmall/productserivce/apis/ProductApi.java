@@ -1,7 +1,9 @@
 package com.dmall.productserivce.apis;
 
+import com.dmall.productserivce.apis.assembler.ProductAssembler;
 import com.dmall.productserivce.application.ProductService;
-import com.dmall.productserivce.application.dto.ProductCreationRequest;
+import com.dmall.productserivce.apis.dto.ProductCreationRequest;
+import com.dmall.productserivce.domain.Product;
 import com.dmall.productserivce.viewmodel.ProductViewModel;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -22,6 +24,9 @@ public class ProductApi {
 
   @Autowired
   private ProductService productService;
+
+  @Autowired
+  private ProductAssembler productAssembler;
 
   @GetMapping
   @ApiOperation("Get all products")
@@ -44,6 +49,8 @@ public class ProductApi {
   @PostMapping
   public Long createProduct(ProductCreationRequest request) {
 
-    return productService.save(request);
+    Product product = productAssembler.toDomainObject(request);
+
+    return productService.save(product);
   }
 }

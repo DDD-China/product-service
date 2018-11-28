@@ -1,4 +1,4 @@
-package com.dmall.productserivce.application.dto;
+package com.dmall.productserivce.apis.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,4 +19,5 @@ public class ProductCreationRequest {
   private BigDecimal price = null;
 
   private Boolean isOnSale = null;
+
 }
