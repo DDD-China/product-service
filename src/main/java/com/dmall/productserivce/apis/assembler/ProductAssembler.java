@@ -18,10 +18,11 @@ public class ProductAssembler {
 
   @Autowired
   private ProductFactory productFactory;
+  private final boolean isOnSale = false;
 
   public Product toDomainObject(ProductCreationRequest creationRequest) {
     return productFactory.create(creationRequest.getId(), creationRequest.getName(),
-        creationRequest.getDescription(), creationRequest.getQuantity(), creationRequest.getPrice(), creationRequest.getIsOnSale());
+        creationRequest.getDescription(), creationRequest.getPrice(), isOnSale);
   }
 
   public ProductCreationRequest toDto(Product product) {

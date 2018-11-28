@@ -21,17 +21,14 @@ public class Product {
 
   private String description = null;
 
-  private Integer quantity = null;
-
   private BigDecimal price = null;
 
   private Boolean isOnSale = null;
 
-  public Product(Long id, String name, String description, Integer quantity, BigDecimal price) {
+  public Product(Long id, String name, String description, BigDecimal price) {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.quantity = quantity;
     this.price = price;
   }
 

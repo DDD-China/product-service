@@ -13,7 +13,7 @@ public class ProductFactory {
 
   protected static final ModelMapper mapper = new ModelMapper();
 
-  public Product create(Long id, String name, String description, Integer quantity, BigDecimal price, Boolean isOnSale) {
-    return new Product(id, name, description, quantity, price, isOnSale);
+  public Product create(Long id, String name, String description, BigDecimal price, Boolean isOnSale) {
+    return new Product(id, name, description, price, isOnSale);
   }
 }

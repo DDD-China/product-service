@@ -1,8 +1,8 @@
 package com.dmall.productserivce.apis;
 
 import com.dmall.productserivce.apis.assembler.ProductAssembler;
-import com.dmall.productserivce.application.ProductService;
 import com.dmall.productserivce.apis.dto.ProductCreationRequest;
+import com.dmall.productserivce.application.ProductService;
 import com.dmall.productserivce.domain.Product;
 import com.dmall.productserivce.viewmodel.ProductViewModel;
 import io.swagger.annotations.ApiImplicitParam;
@@ -46,6 +46,7 @@ public class ProductApi {
   }
 
 
+  @ApiOperation("add product")
   @PostMapping
   public Long createProduct(ProductCreationRequest request) {
 

@@ -14,10 +14,5 @@ public class ProductCreationRequest {
 
   private String description = null;
 
-  private Integer quantity = null;
-
   private BigDecimal price = null;
-
-  private Boolean isOnSale = null;
-
 }
