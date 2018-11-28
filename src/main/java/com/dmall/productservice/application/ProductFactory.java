@@ -1,6 +1,10 @@
 package com.dmall.productservice.application;
 
+<<<<<<< HEAD:src/main/java/com/dmall/productservice/application/ProductFactory.java
 import com.dmall.productservice.domain.Product;
+=======
+import com.dmall.productserivce.domain.Product;
+>>>>>>> product add feature.:src/main/java/com/dmall/productserivce/application/ProductFactory.java
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
