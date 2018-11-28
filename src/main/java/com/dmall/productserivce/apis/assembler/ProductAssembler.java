@@ -21,7 +21,7 @@ public class ProductAssembler {
   private final boolean isOnSale = false;
 
   public Product toDomainObject(ProductCreationRequest creationRequest) {
-    return productFactory.create(creationRequest.getId(), creationRequest.getName(),
+    return productFactory.create(creationRequest.getName(),
         creationRequest.getDescription(), creationRequest.getPrice(), isOnSale);
   }
 

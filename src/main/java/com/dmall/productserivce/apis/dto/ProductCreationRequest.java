@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class ProductCreationRequest {
-  private Long id;
 
   private String name = null;
 
