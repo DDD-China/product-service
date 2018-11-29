@@ -9,7 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import javax.annotation.Resource;
 import java.math.BigDecimal;
 
 import static org.mockito.Mockito.*;
@@ -23,7 +22,7 @@ public class ProductServiceTest {
     private ProductRepository repository;
 
     @Before
-    public void initMocks(){
+    public void initMocks() {
         MockitoAnnotations.initMocks(this);
     }
 

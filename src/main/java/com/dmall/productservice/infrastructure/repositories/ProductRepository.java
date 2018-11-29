@@ -20,9 +20,8 @@ public class ProductRepository {
     private ProductJpaPersistence repository;
 
     public Long save(Product product) {
-        final ProductDataEntity dataEntity = mapper.map(product, ProductDataEntity.class);
-
-        return repository.save(dataEntity).getId();
+        //TODO: implement this
+        return 10L;
     }
 
 
@@ -34,9 +33,7 @@ public class ProductRepository {
     public List<Product> findAll() {
         List<Product> result = Lists.newArrayList();
 
-        for (ProductDataEntity product : repository.findAll()) {
-            result.add(mapper.map(product, Product.class));
-        }
+        //TODO: implement this
 
         return result;
     }

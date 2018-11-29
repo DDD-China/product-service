@@ -11,6 +11,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -31,8 +33,8 @@ public class ProductController {
     @ApiOperation("Get all products")
     public List<ProductResponse> getAllProducts() {
 
-        final List<Product> products = productService.getProducts();
-        return productAssembler.toProductResponseList(products);
+        //TODO: Implement this to retrieve and return all products;
+        return Collections.emptyList();
     }
 
     @ApiOperation("Get product by id")
@@ -51,8 +53,8 @@ public class ProductController {
     @PostMapping
     public ProductResponse createProduct(@RequestBody ProductCreationRequest request) {
 
-        Product product = productAssembler.toDomainObject(request);
-
-        return productAssembler.toProductResponse(productService.save(product));
+        //TODO: Create and save a new product.
+        Product fakeProduct = new Product(10L, "iPhone", "newest iPhone", new BigDecimal(100.0));
+        return productAssembler.toProductResponse(fakeProduct);
     }
 }
