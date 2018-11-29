@@ -19,13 +19,13 @@ public class Product {
 
   private Long id;
 
-  private String name = null;
+  private String name;
 
-  private String description = null;
+  private String description;
 
-  private BigDecimal price = null;
+  private BigDecimal price;
 
-  private Boolean isOnSale = null;
+  private Boolean isOnSale;
 
   public Product(Long id, String name, String description, BigDecimal price) {
     this.id = id;

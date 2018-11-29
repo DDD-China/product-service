@@ -20,9 +20,9 @@ public class ProductResponse {
 
   private Long id;
 
-  private String name = null;
+  private String name;
 
-  private String description = null;
+  private String description;
 
-  private BigDecimal price = null;
+  private BigDecimal price;
 }
