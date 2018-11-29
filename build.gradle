@@ -70,6 +70,6 @@ dependencyManagement {
 }
 
 contracts {
-    packageWithBaseClasses = 'com.dmall.shippingservice.contractTest'
+    packageWithBaseClasses = 'com.dmall.productservice.contractTest'
     contractsDslDir = project.file("api")
 }
