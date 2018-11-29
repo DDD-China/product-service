@@ -18,38 +18,38 @@ import java.util.stream.Collectors;
 public class ProductAssembler {
 
 
-  protected static final ModelMapper mapper = new ModelMapper();
+    protected static final ModelMapper mapper = new ModelMapper();
 
-  @Autowired
-  private ProductFactory productFactory;
-  private final boolean isOnSale = false;
+    @Autowired
+    private ProductFactory productFactory;
+    private final boolean isOnSale = false;
 
-  public Product toDomainObject(ProductCreationRequest creationRequest) {
-    return productFactory.create(creationRequest.getName(),
-        creationRequest.getDescription(), creationRequest.getPrice(), isOnSale);
-  }
-
-  public ProductCreationRequest toDto(Product product) {
-    return mapper.map(product, ProductCreationRequest.class);
-  }
-
-  public ProductResponse toProductResponse(ProductDataEntity dataEntity) {
-    if (dataEntity != null) {
-      return mapper.map(dataEntity, ProductResponse.class);
-    } else {
-      return null;
+    public Product toDomainObject(ProductCreationRequest creationRequest) {
+        return productFactory.create(creationRequest.getName(),
+                creationRequest.getDescription(), creationRequest.getPrice(), isOnSale);
     }
 
-  }
-
-  public List<ProductResponse> toProductResponseList(List<ProductDataEntity> dataEntityList) {
-
-    if (!CollectionUtils.isEmpty(dataEntityList)) {
-      return dataEntityList.stream()
-          .map(c -> mapper.map(c, ProductResponse.class))
-          .collect(Collectors.toList());
-    } else {
-      return null;
+    public ProductCreationRequest toDto(Product product) {
+        return mapper.map(product, ProductCreationRequest.class);
     }
-  }
+
+    public ProductResponse toProductResponse(ProductDataEntity dataEntity) {
+        if (dataEntity != null) {
+            return mapper.map(dataEntity, ProductResponse.class);
+        } else {
+            return null;
+        }
+
+    }
+
+    public List<ProductResponse> toProductResponseList(List<ProductDataEntity> dataEntityList) {
+
+        if (!CollectionUtils.isEmpty(dataEntityList)) {
+            return dataEntityList.stream()
+                    .map(c -> mapper.map(c, ProductResponse.class))
+                    .collect(Collectors.toList());
+        } else {
+            return null;
+        }
+    }
 }

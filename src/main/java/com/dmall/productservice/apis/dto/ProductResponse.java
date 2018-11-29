@@ -1,11 +1,6 @@
 package com.dmall.productservice.apis.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -18,11 +13,11 @@ import java.math.BigDecimal;
 @Setter
 public class ProductResponse {
 
-  private Long id;
+    private Long id;
 
-  private String name;
+    private String name;
 
-  private String description;
+    private String description;
 
-  private BigDecimal price;
+    private BigDecimal price;
 }

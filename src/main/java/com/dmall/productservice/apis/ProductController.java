@@ -21,13 +21,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
-public class ProductApi {
+public class ProductController {
 
-  @Autowired
   private ProductService productService;
 
-  @Autowired
   private ProductAssembler productAssembler;
+
+  @Autowired
+  public ProductController(ProductService productService, ProductAssembler productAssembler) {
+    this.productService = productService;
+    this.productAssembler = productAssembler;
+  }
 
   @GetMapping
   @ApiOperation("Get all products")
@@ -49,7 +53,7 @@ public class ProductApi {
   }
 
 
-  @ApiOperation("add product")
+  @ApiOperation("Create new product")
   @PostMapping
   public Long createProduct(ProductCreationRequest request) {
 

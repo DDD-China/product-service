@@ -16,7 +16,7 @@ public class ProductService {
   private ProductRepository repository;
 
   public List<ProductDataEntity> getProducts() {
-    return repository.finndAll();
+    return repository.findAll();
   }
 
   public ProductDataEntity getProductsById(Long productId) {

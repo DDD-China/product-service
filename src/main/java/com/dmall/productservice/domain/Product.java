@@ -1,11 +1,7 @@
 
 package com.dmall.productservice.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -17,25 +13,25 @@ import java.math.BigDecimal;
 @Getter
 public class Product {
 
-  private Long id;
+    private Long id;
 
-  private String name;
+    private String name;
 
-  private String description;
+    private String description;
 
-  private BigDecimal price;
+    private BigDecimal price;
 
-  private Boolean isOnSale;
+    private Boolean isOnSale;
 
-  public Product(Long id, String name, String description, BigDecimal price) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.price = price;
-  }
+    public Product(Long id, String name, String description, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
 
