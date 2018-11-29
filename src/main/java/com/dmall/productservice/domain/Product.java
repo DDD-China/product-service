@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 @Getter
+@Setter
 public class Product {
 
     private Long id;
@@ -28,10 +29,6 @@ public class Product {
         this.name = name;
         this.description = description;
         this.price = price;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }
 

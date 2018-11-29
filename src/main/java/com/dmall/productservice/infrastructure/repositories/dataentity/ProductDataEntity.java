@@ -18,15 +18,15 @@ public class ProductDataEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String name = null;
+    private String name;
 
-    @Column
-    private String description = null;
+    @Column(nullable = false)
+    private String description;
 
-    @Column
-    private BigDecimal price = null;
+    @Column(nullable = false)
+    private BigDecimal price;
 
-    @Column
-    private Boolean isOnSale = null;
+    @Column(nullable = false)
+    private Boolean isOnSale;
 }
 

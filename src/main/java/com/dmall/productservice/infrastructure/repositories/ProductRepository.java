@@ -22,19 +22,13 @@ public class ProductRepository {
     public Long save(Product product) {
         final ProductDataEntity dataEntity = mapper.map(product, ProductDataEntity.class);
 
-        repository.save(dataEntity);
-
-        return dataEntity.getId();
+        return repository.save(dataEntity).getId();
     }
 
 
     public Product findById(Long productId) {
         Optional<ProductDataEntity> product = repository.findById(productId);
-        if (product.isPresent()) {
-            return mapper.map(product, Product.class);
-        } else {
-            return null;
-        }
+        return product.map(productDataEntity -> mapper.map(productDataEntity, Product.class)).orElse(null);
     }
 
     public List<Product> findAll() {
