@@ -4,7 +4,6 @@ import com.dmall.productservice.apis.dto.ProductCreationRequest;
 import com.dmall.productservice.apis.dto.ProductResponse;
 import com.dmall.productservice.application.ProductFactory;
 import com.dmall.productservice.domain.Product;
-import com.dmall.productservice.infrastructure.repositories.dataentity.ProductDataEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,19 +32,19 @@ public class ProductAssembler {
         return mapper.map(product, ProductCreationRequest.class);
     }
 
-    public ProductResponse toProductResponse(ProductDataEntity dataEntity) {
-        if (dataEntity != null) {
-            return mapper.map(dataEntity, ProductResponse.class);
+    public ProductResponse toProductResponse(Product product) {
+        if (product != null) {
+            return mapper.map(product, ProductResponse.class);
         } else {
             return null;
         }
 
     }
 
-    public List<ProductResponse> toProductResponseList(List<ProductDataEntity> dataEntityList) {
+    public List<ProductResponse> toProductResponseList(List<Product> products) {
 
-        if (!CollectionUtils.isEmpty(dataEntityList)) {
-            return dataEntityList.stream()
+        if (!CollectionUtils.isEmpty(products)) {
+            return products.stream()
                     .map(c -> mapper.map(c, ProductResponse.class))
                     .collect(Collectors.toList());
         } else {

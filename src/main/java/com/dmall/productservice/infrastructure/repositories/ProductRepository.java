@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ProductRepository {
@@ -27,14 +28,21 @@ public class ProductRepository {
     }
 
 
-    public ProductDataEntity findById(Long productId) {
-        return repository.findById(productId).orElse(null);
+    public Product findById(Long productId) {
+        Optional<ProductDataEntity> product = repository.findById(productId);
+        if (product.isPresent()) {
+            return mapper.map(product, Product.class);
+        } else {
+            return null;
+        }
     }
 
-    public List<ProductDataEntity> findAll() {
-        List<ProductDataEntity> result = Lists.newArrayList();
+    public List<Product> findAll() {
+        List<Product> result = Lists.newArrayList();
 
-        repository.findAll().forEach(result::add);
+        for (ProductDataEntity product : repository.findAll()) {
+            result.add(mapper.map(product, Product.class));
+        }
 
         return result;
     }
