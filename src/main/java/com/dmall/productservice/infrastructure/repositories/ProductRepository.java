@@ -33,10 +33,10 @@ public class ProductRepository {
   }
 
   public List<ProductDataEntity> finndAll() {
-    List<ProductDataEntity> reuslt = Lists.newArrayList();
+    List<ProductDataEntity> result = Lists.newArrayList();
 
-    repository.findAll().forEach(reuslt::add);
+    repository.findAll().forEach(result::add);
 
-    return reuslt;
+    return result;
   }
 }
