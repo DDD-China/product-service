@@ -61,6 +61,9 @@ dependencies {
     compile('org.modelmapper:modelmapper:1.1.1')
     testCompile('io.rest-assured:rest-assured:3.2.0')
     testCompile('io.rest-assured:spring-mock-mvc:3.2.0')
+    testCompile('com.tngtech.archunit:archunit:0.9.3')
+    testCompile('com.tngtech.archunit:archunit-junit4:0.9.3')
+    testImplementation('org.mockito:mockito-core:2.7.22')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation('org.springframework.cloud:spring-cloud-starter-contract-verifier')
 }
