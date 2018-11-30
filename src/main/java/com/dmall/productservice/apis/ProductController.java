@@ -50,11 +50,10 @@ public class ProductController {
 
 
     @ApiOperation("Create new product")
-    @PostMapping
+    @PostMapping(value = "/create",  headers = "Accept=application/json")
     public ProductResponse createProduct(@RequestBody ProductCreationRequest request) {
-
         //TODO: Create and save a new product.
-        Product fakeProduct = new Product(10L, "iPhone", "newest iPhone", new BigDecimal(100.0));
-        return productAssembler.toProductResponse(fakeProduct);
+        Product product = productAssembler.toDomainObject(request);
+        return productAssembler.toProductResponse(productService.save(product));
     }
 }
