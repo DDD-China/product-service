@@ -21,7 +21,9 @@ public class ProductRepository {
 
     public Long save(Product product) {
         //TODO: implement this
-        return 10L;
+        ProductDataEntity productDataEntity  =
+                repository.save(mapper.map(product, ProductDataEntity.class));
+        return  productDataEntity.getId();
     }
 
 
