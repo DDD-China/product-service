@@ -6,6 +6,10 @@ jobs:
     working_directory: ~/product-service
     steps:
       - checkout
+      - run:
+          name: Checkout contract submodule
+          command: |
+            ./update-contract.sh
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "build.gradle" }}
