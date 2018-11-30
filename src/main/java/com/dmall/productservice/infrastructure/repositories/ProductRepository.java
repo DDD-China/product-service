@@ -20,7 +20,6 @@ public class ProductRepository {
     private ProductJpaPersistence repository;
 
     public Long save(Product product) {
-        //TODO: implement this
         ProductDataEntity productDataEntity  =
                 repository.save(mapper.map(product, ProductDataEntity.class));
         return  productDataEntity.getId();

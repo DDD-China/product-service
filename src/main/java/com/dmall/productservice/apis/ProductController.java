@@ -54,4 +54,23 @@ public class ProductController {
         Product product = productAssembler.toDomainObject(request);
         return productAssembler.toProductResponse(productService.save(product));
     }
+
+    @ApiOperation("update product info")
+    @RequestMapping(value = "/{productId}", method = RequestMethod.PUT, headers = "Accept=application/json")
+    public void updateProduct(@PathVariable("productId") final Long productId,
+                              @RequestBody ProductCreationRequest request){
+        Product newProduct = productAssembler.toDomainObject(request);
+        Product oldProduct = productService.getProductsById(productId);
+        if(newProduct.getName() != null){
+            oldProduct.setName(newProduct.getName());
+        }
+        if(newProduct.getDescription() != null){
+            oldProduct.setDescription(newProduct.getDescription());
+
+        }
+        if (newProduct.getPrice() != null) {
+            oldProduct.setPrice(newProduct.getPrice());
+        }
+        productService.save(oldProduct);
+    }
 }
