@@ -49,9 +49,8 @@ public class ProductController {
 
 
     @ApiOperation("Create new product")
-    @PostMapping(value = "/create",  headers = "Accept=application/json")
+    @PostMapping
     public ProductResponse createProduct(@RequestBody ProductCreationRequest request) {
-        //TODO: Create and save a new product.
         Product product = productAssembler.toDomainObject(request);
         return productAssembler.toProductResponse(productService.save(product));
     }
