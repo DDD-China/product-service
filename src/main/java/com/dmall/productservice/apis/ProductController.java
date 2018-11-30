@@ -32,9 +32,8 @@ public class ProductController {
     @GetMapping
     @ApiOperation("Get all products")
     public List<ProductResponse> getAllProducts() {
-
-        //TODO: Implement this to retrieve and return all products;
-        return Collections.emptyList();
+        final List<Product> products = productService.getProducts();
+        return productAssembler.toProductResponseList(products);
     }
 
     @ApiOperation("Get product by id")
