@@ -37,11 +37,17 @@ public class ProductBase {
         Product product1 = new Product(10L, "Mac mini", "Mac mini computer", new BigDecimal(9888.00));
         Product product2 = new Product(20L, "iPhone X", "iPhone 2018 new fashion", new BigDecimal(8888.00));
         List<Product> products = Arrays.asList(product1, product2);
-        ProductResponse response = new ProductResponse();
-        response.setId(10L);
-        response.setName("Mac mini");
-        response.setDescription("Mac mini computer");
-        response.setPrice(new BigDecimal(9888.00));
+        ProductResponse response1 = new ProductResponse();
+        response1.setId(10L);
+        response1.setName("Mac mini");
+        response1.setDescription("Mac mini computer");
+        response1.setPrice(new BigDecimal(9888.00));
+
+        ProductResponse response2 = new ProductResponse();
+        response2.setId(20L);
+        response2.setName("iPhone X");
+        response2.setDescription("iPhone 2018 new fashion");
+        response2.setPrice(new BigDecimal(8888.00));
 
         when(productService.getProducts()).thenReturn(products);
         when(productService.getProductsById(anyLong())).thenReturn(product1);
@@ -49,8 +55,8 @@ public class ProductBase {
 
 
         when(productAssembler.toDomainObject(any(ProductCreationRequest.class))).thenReturn(product1);
-        when(productAssembler.toProductResponse(any(Product.class))).thenReturn(response);
-        when(productAssembler.toProductResponseList(anyList())).thenReturn(Arrays.asList(response));
+        when(productAssembler.toProductResponse(any(Product.class))).thenReturn(response1);
+        when(productAssembler.toProductResponseList(anyList())).thenReturn(Arrays.asList(response1, response2));
 
         RestAssuredMockMvc.standaloneSetup(new ProductController(productService, productAssembler));
     }

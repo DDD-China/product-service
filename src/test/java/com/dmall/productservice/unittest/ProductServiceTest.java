@@ -10,7 +10,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class ProductServiceTest {
@@ -35,5 +38,23 @@ public class ProductServiceTest {
 
         productService.getProductsById(productId);
         verify(repository, atLeastOnce()).findById(productId);
+    }
+
+    @Test
+    public void shouldGetAllProducts() {
+        Product iphone = new Product(10L, "iPhone", "newest iPhone", new BigDecimal(1000.00));
+        Product mac = new Product(11L, "Mac", "mac", new BigDecimal(2000));
+        List<Product> list = new ArrayList<>(2);
+        list.add(iphone);
+        list.add(mac);
+
+        when(repository.findAll()).thenReturn(list);
+
+        List<Product> result = productService.getProducts();
+
+        assertEquals(2, result.size());
+        assertEquals(10L, result.get(0).getId().longValue());
+        assertEquals(11L, result.get(1).getId().longValue());
+
     }
 }

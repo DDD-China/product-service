@@ -33,7 +33,9 @@ public class ProductRepository {
     public List<Product> findAll() {
         List<Product> result = Lists.newArrayList();
 
-        //TODO: implement this
+        Iterable<ProductDataEntity> iterable = repository.findAll();
+
+        iterable.forEach((productDataEntity) -> result.add(mapper.map(productDataEntity, Product.class)));
 
         return result;
     }
